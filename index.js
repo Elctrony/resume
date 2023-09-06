@@ -77,12 +77,13 @@ app.use((req,res,next)=>{
     console.log('Hi');
 })
 
-app.listen(8080,()=>{
-    console.log("Server is running on port 8080");
-});
+
 mongoose
     .connect('mongodb+srv://Electrony:monaga2003@cluster0.pcqfa.mongodb.net/resume?retryWrites=true&w=majority')
     .then(result => {
         console.log("DATABASE connected");
+        app.listen(8080,()=>{
+            console.log("Server is running on port 8080");
+        });
     })
     .catch(err => console.log(err));
